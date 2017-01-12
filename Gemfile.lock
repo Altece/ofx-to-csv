@@ -1,0 +1,36 @@
+GIT
+  remote: https://github.com/aasmith/ofx-parser.git
+  revision: fa26c9360ed81b80617a2ed5edd3966dff84ba4b
+  branch: master
+  specs:
+    ofx-parser (1.1.0.20121129105223)
+      hpricot (>= 0.6)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (5.0.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    concurrent-ruby (1.0.4)
+    fastercsv (1.5.5)
+    hpricot (0.8.6)
+    i18n (0.7.0)
+    minitest (5.10.1)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  fastercsv
+  i18n
+  ofx-parser!
+
+BUNDLED WITH
+   1.13.7
