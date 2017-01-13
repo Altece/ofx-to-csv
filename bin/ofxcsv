@@ -4,27 +4,26 @@ require 'optparse'
 require 'ostruct'
 
 require_relative '../lib/ofxcsv'
-
-EXTENSION = "#{OfxCsv::Builder.extension}"
+require 'path'
 
 options = OpenStruct.new
 options.ofx_files = []
-options.save_as_path = "Finances.#{EXTENSION}"
+options.save_in_path = 'Finances'
 
 OptionParser.new do |opts|
   opts.banner = "Usage: #{File.basename(__FILE__)} OFX_FILES... [--save-as FILEPATH]"
 
   opts.separator ''
-  opts.separator 'Specific options:'
 
   opts.on('-s', '--save-as FILEPATH', 'Specify where the ofxcsv file should be saved') do |path|
-    path += EXTENSION unless path.end_with? EXTENSION
-    options.save_as_path = path
+    path = Path(path)
+    path = path.rm_ext if path.pure_ext == OfxCsv::EXTENSION
+    options.save_in_path = path.to_s
   end
 end.parse!
 ARGV.each { |file| options.ofx_files << file }
 
-builder = OfxCsv::Builder.new(options.save_as_path)
+result = OfxCsv::OfxCsv.new(options.save_in_path)
 options.ofx_files.each do |ofx_file|
-  builder.parse ofx_file
+  result.populate_with! ofx_file
 end

@@ -15,10 +15,10 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     concurrent-ruby (1.0.4)
-    fastercsv (1.5.5)
     hpricot (0.8.6)
     i18n (0.7.0)
     minitest (5.10.1)
+    path (2.0.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -28,9 +28,9 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  fastercsv
   i18n
   ofx-parser!
+  path
 
 BUNDLED WITH
    1.13.7
